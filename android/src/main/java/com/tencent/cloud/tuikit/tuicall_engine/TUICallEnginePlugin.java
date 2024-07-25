@@ -89,8 +89,9 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
         TUICallEngine.createInstance(mApplicationContext).setVideoEncoderParams(encoderParams, new TUICommonDefine.Callback() {
             @Override
             public void onSuccess() {
-                try{
-                    result.success(0);
+                try {
+                            result.success(0);
+                    
                 } catch (Exception e) {
                     Logger.error(TAG, "setVideoEncoderParams Success but error"+e.toString());
                 }
@@ -114,7 +115,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
                 new TUICommonDefine.Callback() {
                     @Override
                     public void onSuccess() {
-                        result.success(0);
+                        try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "setVideoRenderParams Success but error"+e.toString());
+                        }
                     }
 
                     @Override
@@ -129,7 +134,12 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
         TUICallEngine.createInstance(mApplicationContext).hangup(new TUICommonDefine.Callback() {
             @Override
             public void onSuccess() {
-                result.success(0);
+                try {
+                            result.success(0);
+                    
+                } catch (Exception e) {
+                    Logger.error(TAG, "hangup Success but error"+e.toString());
+                }
             }
 
             @Override
@@ -147,7 +157,12 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
         TUICallEngine.createInstance(mApplicationContext).init(sdkAppID, userId, userSig, new TUICommonDefine.Callback() {
             @Override
             public void onSuccess() {
-                result.success(0);
+                try {
+                            result.success(0);
+                    
+                } catch (Exception e) {
+                    Logger.error(TAG, "init Success but error"+e.toString());
+                }
             }
 
             @Override
@@ -160,7 +175,13 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
 
     public void unInit(MethodCall call, MethodChannel.Result result) {
         TUICallEngine.destroyInstance();
-        result.success(0);
+        try {
+                            result.success(0);
+            
+                        
+        } catch (Exception e) {
+            Logger.error(TAG, "unInit Success but error"+e.toString());
+        }
     }
 
     public void call(MethodCall call, MethodChannel.Result result) {
@@ -175,7 +196,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
         TUICallEngine.createInstance(mApplicationContext).call(userId, mediaType, params, new TUICommonDefine.Callback() {
             @Override
             public void onSuccess() {
-                result.success(0);
+                try {
+                    result.success(0);
+                } catch (Exception e) {
+                    Logger.error(TAG, "call Success but error"+e.toString());
+                }
             }
 
             @Override
@@ -201,7 +226,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
                 new TUICommonDefine.Callback() {
                     @Override
                     public void onSuccess() {
-                        result.success(0);
+                        try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
                     }
 
                     @Override
@@ -216,7 +245,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
         TUICallEngine.createInstance(mApplicationContext).accept(new TUICommonDefine.Callback() {
             @Override
             public void onSuccess() {
-                result.success(0);
+                try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
             }
 
             @Override
@@ -230,7 +263,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
         TUICallEngine.createInstance(mApplicationContext).reject(new TUICommonDefine.Callback() {
             @Override
             public void onSuccess() {
-                result.success(0);
+                try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
             }
 
             @Override
@@ -246,7 +283,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
         TUICallEngine.createInstance(mApplicationContext).ignore(new TUICommonDefine.Callback() {
             @Override
             public void onSuccess() {
-                result.success(0);
+                try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
             }
 
             @Override
@@ -293,7 +334,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
                 new TUICommonDefine.Callback() {
                     @Override
                     public void onSuccess() {
-                        result.success(0);
+                        try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
                     }
 
                     @Override
@@ -309,7 +354,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
         TUICallDefine.MediaType mediaType = EnumUtils.getMediaType(mediaTypeIndex);
 
         TUICallEngine.createInstance(mApplicationContext).switchCallMediaType(mediaType);
-        result.success(0);
+        try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
     }
 
     public void startRemoteView(MethodCall call, MethodChannel.Result result) {
@@ -334,14 +383,22 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
                         "startRemoteView Error{ code:" + code + ",message:" + message + ",userId:" + userId + "}");
             }
         });
-        result.success(0);
+        try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
     }
 
     public void stopRemoteView(MethodCall call, MethodChannel.Result result) {
         String userId = MethodCallUtils.getMethodParams(call, "userId");
 
         TUICallEngine.createInstance(mApplicationContext).stopRemoteView(userId);
-        result.success(0);
+        try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
     }
 
     public void openCamera(MethodCall call, MethodChannel.Result result) {
@@ -356,7 +413,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
                     @Override
                     public void onSuccess() {
                         Log.i(TAG, "openCamera success");
-                        result.success(0);
+                        try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
                     }
 
                     @Override
@@ -369,7 +430,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
 
     public void closeCamera(MethodCall call, MethodChannel.Result result) {
         TUICallEngine.createInstance(mApplicationContext).closeCamera();
-        result.success(0);
+        try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
     }
 
     public void switchCamera(MethodCall call, MethodChannel.Result result) {
@@ -377,14 +442,22 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
         TUICommonDefine.Camera camera = EnumUtils.getCameraType(cameraIndex);
 
         TUICallEngine.createInstance(mApplicationContext).switchCamera(camera);
-        result.success(0);
+        try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
     }
 
     public void openMicrophone(MethodCall call, MethodChannel.Result result) {
         TUICallEngine.createInstance(mApplicationContext).openMicrophone(new TUICommonDefine.Callback() {
             @Override
             public void onSuccess() {
-                result.success(0);
+                try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
             }
 
             @Override
@@ -397,7 +470,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
 
     public void closeMicrophone(MethodCall call, MethodChannel.Result result) {
         TUICallEngine.createInstance(mApplicationContext).closeMicrophone();
-        result.success(0);
+        try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
     }
 
     public void selectAudioPlaybackDevice(MethodCall call, MethodChannel.Result result) {
@@ -405,7 +482,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
         TUICommonDefine.AudioPlaybackDevice audioPlaybackDevice = EnumUtils.getAudioPlaybackDeviceType(audioPlaybackDeviceIndex);
 
         TUICallEngine.createInstance(mApplicationContext).selectAudioPlaybackDevice(audioPlaybackDevice);
-        result.success(0);
+        try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
     }
 
     public void setSelfInfo(MethodCall call, MethodChannel.Result result) {
@@ -415,7 +496,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
         TUICallEngine.createInstance(mApplicationContext).setSelfInfo(nickname, avatar, new TUICommonDefine.Callback() {
             @Override
             public void onSuccess() {
-                result.success(0);
+                try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
             }
 
             @Override
@@ -433,7 +518,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
                 new TUICommonDefine.Callback() {
                     @Override
                     public void onSuccess() {
-                        result.success(0);
+                        try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
                     }
 
                     @Override
@@ -497,7 +586,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
 
                     @Override
                     public void onSuccess() {
-                        result.success(0);
+                        try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
                     }
 
                     @Override
@@ -545,7 +638,11 @@ public class TUICallEnginePlugin implements FlutterPlugin, MethodCallHandler {
         Map jsonMap = MethodCallUtils.getMethodParams(call, "jsonMap");
 
         TUICallEngine.createInstance(mApplicationContext).callExperimentalAPI(new Gson().toJson(jsonMap));
-        result.success(0);
+        try {
+                            result.success(0);
+                        } catch (Exception e) {
+                            Logger.error(TAG, "groupCall Success but error"+e.toString());
+                        }
     }
 
 
